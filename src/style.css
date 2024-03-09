@@ -1,7 +1,46 @@
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+@import "./css/reset.css";
+@import "./css/header.css";
+@import "./css/home.css";
+
+/* VARIABLES */
+:root {
+	--ff-body: "Karla", sans-serif;
+	--ff-heading: "Dancing Script", cursive;
+
+	--font-size-300: clamp(0.8333rem, 0.7754rem + 0.2899vw, 1rem);
+	--font-size-400: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
+	--font-size-500: clamp(1.2rem, 1.0739rem + 0.6304vw, 1.5625rem);
+	--font-size-600: clamp(1.44rem, 1.2615rem + 0.8924vw, 1.9531rem);
+	--font-size-700: clamp(1.728rem, 1.4799rem + 1.2407vw, 2.4414rem);
+	--font-size-800: clamp(2.0736rem, 1.7334rem + 1.7011vw, 3.0518rem);
+	--font-size-900: clamp(2.4883rem, 2.027rem + 2.3067vw, 3.8147rem);
+	--font-size-1000: clamp(2.8883rem, 2.327rem + 2.9067vw, 5.2147rem);
+
+	--clr-primary: #efdb02;
+	--clr-dark: #1b1818;
+	--clr-light: #fff;
+	--clr-overlay: rgb(0, 0, 0, 0.7);
+
+	--box-shadow: 0px 5px 15px 0 rgba(0, 0, 0, 0.7);
+
+	--border-radius: 8px;
+}
+
+/* GENERAL STYLES */
+body {
+	font-family: var(--ff-body);
+	font-size: var(--font-size-500);
+	color: var(--clr-light);
+	background: url("images/background.jpg") fixed center/cover;
+}
+
+h1 {
+	font-family: var(--ff-heading);
+	font-size: var(--font-size-1000);
+}
+
+/* LAYOUT */
+.container {
+	width: min(80%, 85rem);
+	margin: 0 auto;
 }

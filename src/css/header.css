@@ -1,0 +1,44 @@
+header {
+	background: var(--clr-overlay);
+	padding: 2rem;
+	box-shadow: var(--box-shadow);
+}
+
+header nav {
+	margin-top: 2rem;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.5rem;
+}
+
+header .brand-name {
+	color: var(--clr-primary);
+	text-align: center;
+}
+
+header .nav-btn {
+	display: inline-block;
+	cursor: pointer;
+	background: transparent;
+	color: var(--clr-light);
+	font-size: var(--font-size-600);
+	font-weight: 300;
+	padding: 0 1rem;
+	border: none;
+
+	transition: transform 0.2s ease-in-out;
+}
+
+header .nav-btn:hover {
+	transform: translateY(-5px);
+}
+
+header .nav-btn:active {
+	opacity: 0.8;
+}
+
+header .nav-btn.active {
+	border-bottom: 2px solid var(--clr-primary);
+}
