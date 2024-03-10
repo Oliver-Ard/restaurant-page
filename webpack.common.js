@@ -19,7 +19,7 @@ module.exports = {
 			filename: "index.html",
 		}),
 		new MiniCssExtractPlugin({
-			filename: "css/style.css",
+			filename: "css/main.css",
 		}),
 		new CopyPlugin({
 			patterns: [

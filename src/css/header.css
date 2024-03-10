@@ -4,6 +4,12 @@ header {
 	box-shadow: var(--box-shadow);
 }
 
+header .brand-name {
+	color: var(--clr-primary);
+	text-align: center;
+}
+
+/* --Navbar-- */
 header nav {
 	margin-top: 2rem;
 
@@ -11,11 +17,6 @@ header nav {
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 1.5rem;
-}
-
-header .brand-name {
-	color: var(--clr-primary);
-	text-align: center;
 }
 
 header .nav-btn {
