@@ -2,6 +2,7 @@
 @import "./css/utility-classes.css";
 @import "./css/header.css";
 @import "./css/home.css";
+@import "./css/menu.css";
 
 /* VARIABLES */
 :root {
@@ -54,6 +55,7 @@ h2 {
 
 /* MEDIA QUERIES */
 @media only screen and (max-width: 900px) {
+	/* --Home Section-- */
 	#home .hero-card {
 		flex-direction: column;
 	}
@@ -65,10 +67,24 @@ h2 {
 	#home .hero-card .hero-card-wrapper:nth-of-type(2) {
 		width: 100%;
 	}
+
+	/* --Menu Section-- */
+	#menu .menu-card:not(:nth-child(1)) {
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"title"
+			"img"
+			"text";
+	}
 }
 
 @media only screen and (max-width: 540px) {
 	.card {
 		padding: 4rem 2.5rem;
+	}
+
+	#home .hours-card ul,
+	#menu .menu-products {
+		font-size: var(--font-size-500);
 	}
 }

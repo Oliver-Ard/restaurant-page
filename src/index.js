@@ -1,6 +1,7 @@
 import "./main.css";
 
-import Home from "./components/home";
+import Home from "./components/home.js";
+import Menu from "./components/menu.js";
 
 class App {
 	#content;
@@ -8,6 +9,7 @@ class App {
 	#menuBtn;
 	#contactBtn;
 	#home;
+	#menu;
 
 	constructor() {
 		this.#content = document.querySelector("#content");
@@ -15,6 +17,7 @@ class App {
 		this.#menuBtn = document.querySelector("#menu-btn");
 		this.#contactBtn = document.querySelector("#contact-btn");
 		this.#home = new Home();
+		this.#menu = new Menu();
 
 		this.#loadEventListeners();
 	}
@@ -31,6 +34,7 @@ class App {
 				break;
 			}
 			case "menu": {
+				this.#menu.renderMenuTab();
 				this.#menuBtn.classList.add("active");
 				this.#homeBtn.classList.remove("active");
 				this.#contactBtn.classList.remove("active");

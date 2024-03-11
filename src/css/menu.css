@@ -1,0 +1,56 @@
+#menu .menu-card {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	grid-template-areas:
+		"title title"
+		"img text";
+	justify-items: center;
+	align-items: center;
+	gap: 3rem;
+}
+
+/* Reverse the grid columns for the odd children */
+#menu .menu-card:nth-child(even) {
+	grid-template-columns: auto 1fr;
+	grid-template-areas:
+		"title title"
+		"text img";
+}
+
+/* Remove the gap for the first card between the columns */
+#menu .menu-card:first-child {
+	gap: 3rem 0;
+}
+
+#menu .menu-card-title {
+	color: var(--clr-secondary);
+	text-align: center;
+
+	position: relative;
+	grid-area: title;
+}
+
+#menu .menu-card-title::before {
+	content: "";
+	height: 0.2rem;
+	width: 80%;
+	background: currentColor;
+	border-radius: 50%;
+
+	position: absolute;
+	bottom: -10px;
+	left: calc(50% - 40%);
+}
+
+#menu .menu-card-image {
+	width: 90%;
+	border-radius: 50% 15px;
+
+	grid-area: img;
+}
+
+#menu .menu-products {
+	font-size: var(--font-size-600);
+
+	grid-area: text;
+}
