@@ -3,6 +3,7 @@
 @import "./css/header.css";
 @import "./css/home.css";
 @import "./css/menu.css";
+@import "./css/contact.css";
 
 /* VARIABLES */
 :root {
@@ -34,7 +35,7 @@
 /* GENERAL STYLES */
 body {
 	font-family: var(--ff-body);
-	font-size: var(--font-size-500);
+	font-size: var(--font-size-600);
 	color: var(--clr-light);
 	background: url("images/background.jpg") fixed center/cover;
 }
@@ -51,6 +52,21 @@ h1 {
 
 h2 {
 	font-size: var(--font-size-900);
+}
+
+/* Underline for the titles */
+#home .hours-card-title::before,
+#menu .menu-card-title::before,
+#contact .contact-card-title::before {
+	content: "";
+	height: 0.2rem;
+	width: 80%;
+	background: currentColor;
+	border-radius: 50%;
+
+	position: absolute;
+	bottom: -10px;
+	left: calc(50% - 40%);
 }
 
 /* MEDIA QUERIES */
@@ -86,5 +102,9 @@ h2 {
 	#home .hours-card ul,
 	#menu .menu-products {
 		font-size: var(--font-size-500);
+	}
+
+	#contact .location-img {
+		width: 100%;
 	}
 }

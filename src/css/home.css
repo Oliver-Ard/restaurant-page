@@ -37,22 +37,6 @@
 	position: relative;
 }
 
-#home .hours-card-title::before {
-	content: "";
-	height: 0.2rem;
-	width: 80%;
-	background: currentColor;
-	border-radius: 50%;
-
-	position: absolute;
-	bottom: -10px;
-	left: calc(50% - 40%);
-}
-
-#home .hours-card ul {
-	font-size: var(--font-size-600);
-}
-
 #home .hours-card ul li:not(:last-child) {
 	margin-bottom: 1rem;
 }

@@ -30,18 +30,6 @@
 	grid-area: title;
 }
 
-#menu .menu-card-title::before {
-	content: "";
-	height: 0.2rem;
-	width: 80%;
-	background: currentColor;
-	border-radius: 50%;
-
-	position: absolute;
-	bottom: -10px;
-	left: calc(50% - 40%);
-}
-
 #menu .menu-card-image {
 	width: 90%;
 	border-radius: 50% 15px;
@@ -50,7 +38,5 @@
 }
 
 #menu .menu-products {
-	font-size: var(--font-size-600);
-
 	grid-area: text;
 }
