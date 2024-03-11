@@ -1,3 +1,5 @@
+import Utility from "./Utility.js";
+
 import coffeeIcon from "../images/coffee-cup-icon.png";
 import coffeeCup from "../images/coffee-cup.jpg";
 import coldBrew from "../images/cold-brew.jpg";
@@ -6,10 +8,10 @@ import lightMeal from "../images/light-meal.jpg";
 import teaCup from "../images/tea-cup.jpg";
 
 class Menu {
-	#content;
+	#utility;
 
 	constructor() {
-		this.#content = document.querySelector("#content");
+		this.#utility = new Utility();
 
 		this.signatureDrinks = {
 			title: "Signature Drinks",
@@ -132,13 +134,14 @@ class Menu {
 			menu.append(card);
 		}
 
-		this.#content.append(menu);
+		this.#utility.content.append(menu);
 	}
 
 	#createMenuCards() {
 		const cardsArray = [];
 
 		for (let i = 0; i < 6; i++) {
+			// Menu Cards
 			const menuCard = document.createElement("div");
 			menuCard.classList.add("menu-card", "card");
 
@@ -219,9 +222,9 @@ class Menu {
 		const para = document.createElement("p");
 		para.textContent =
 			"Indulge in our exquisite selection of handcrafted coffees, refreshing teas, and delectable treats at ";
-		para.append(this.#markText("Café Savory Delights"));
+		para.append(this.#utility.markText("Café Savory Delights"));
 		para.append(
-			this.#createTextNode(
+			this.#utility.createTextNode(
 				". From our signature drinks to savory options and sweet pastries, there's something to satisfy every craving. Join us for a delightful culinary experience that promises to tantalize your taste buds and elevate your coffee break to new heights."
 			)
 		);
@@ -246,27 +249,35 @@ class Menu {
 		// --List Items--
 		const listItems = this.#createListItems(4);
 		// First Product
-		listItems[0].append(this.#markText(categoryObj.productOne.productName));
 		listItems[0].append(
-			this.#createTextNode(categoryObj.productOne.productPrice)
+			this.#utility.markText(categoryObj.productOne.productName)
+		);
+		listItems[0].append(
+			this.#utility.createTextNode(categoryObj.productOne.productPrice)
 		);
 		productsList.append(listItems[0]);
 		// Second Product
-		listItems[1].append(this.#markText(categoryObj.productTwo.productName));
 		listItems[1].append(
-			this.#createTextNode(categoryObj.productTwo.productPrice)
+			this.#utility.markText(categoryObj.productTwo.productName)
+		);
+		listItems[1].append(
+			this.#utility.createTextNode(categoryObj.productTwo.productPrice)
 		);
 		productsList.append(listItems[1]);
 		// Third Product
-		listItems[2].append(this.#markText(categoryObj.productThree.productName));
 		listItems[2].append(
-			this.#createTextNode(categoryObj.productThree.productPrice)
+			this.#utility.markText(categoryObj.productThree.productName)
+		);
+		listItems[2].append(
+			this.#utility.createTextNode(categoryObj.productThree.productPrice)
 		);
 		productsList.append(listItems[2]);
 		// Fourth Product
-		listItems[3].append(this.#markText(categoryObj.productFour.productName));
 		listItems[3].append(
-			this.#createTextNode(categoryObj.productFour.productPrice)
+			this.#utility.markText(categoryObj.productFour.productName)
+		);
+		listItems[3].append(
+			this.#utility.createTextNode(categoryObj.productFour.productPrice)
 		);
 		productsList.append(listItems[3]);
 
@@ -275,7 +286,7 @@ class Menu {
 		return elementsArray;
 	}
 
-	// Utility Functions
+	// Helper Functions
 	#createCardTitle(title) {
 		const titleEl = document.createElement("h2");
 		titleEl.classList.add("menu-card-title");
@@ -302,18 +313,6 @@ class Menu {
 		}
 
 		return itemsArray;
-	}
-
-	#markText(text) {
-		const highlightedText = document.createElement("span");
-		highlightedText.classList.add("highlighted-text");
-		highlightedText.textContent = text;
-
-		return highlightedText;
-	}
-
-	#createTextNode(text) {
-		return document.createTextNode(text);
 	}
 }
 

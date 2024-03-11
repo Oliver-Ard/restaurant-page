@@ -1,23 +1,24 @@
 import "./main.css";
 
+import Utility from "./components/Utility.js";
 import Home from "./components/Home.js";
 import Menu from "./components/Menu.js";
 import Contact from "./components/Contact.js";
 
 class App {
-	#content;
 	#homeBtn;
 	#menuBtn;
 	#contactBtn;
+	#utility;
 	#home;
 	#menu;
 	#contact;
 
 	constructor() {
-		this.#content = document.querySelector("#content");
 		this.#homeBtn = document.querySelector("#home-btn");
 		this.#menuBtn = document.querySelector("#menu-btn");
 		this.#contactBtn = document.querySelector("#contact-btn");
+		this.#utility = new Utility();
 		this.#home = new Home();
 		this.#menu = new Menu();
 		this.#contact = new Contact();
@@ -26,7 +27,7 @@ class App {
 	}
 
 	#switchTabs(tab) {
-		this.#content.textContent = "";
+		this.#utility.content.textContent = "";
 
 		switch (tab) {
 			case "home": {

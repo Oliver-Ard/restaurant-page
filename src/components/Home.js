@@ -1,11 +1,13 @@
+import Utility from "./Utility.js";
+
 import coffeeIcon from "../images/coffee-cup-icon.png";
 import coffeeMachineImg from "../images/coffee-machine.jpg";
 
 class Home {
-	#content;
+	#utility;
 
 	constructor() {
-		this.#content = document.querySelector("#content");
+		this.#utility = new Utility();
 	}
 
 	renderHomeTab() {
@@ -16,7 +18,7 @@ class Home {
 		home.append(this.#createHeroCard());
 		home.append(this.#createHoursCard());
 
-		this.#content.append(home);
+		this.#utility.content.append(home);
 	}
 
 	#createHeroCard() {
@@ -47,14 +49,14 @@ class Home {
 				const heroText = document.createElement("p");
 				heroText.classList.add("hero-text");
 				heroText.textContent = "Welcome to ";
-				heroText.append(this.#markText("Café Savory Delights"));
+				heroText.append(this.#utility.markText("Café Savory Delights"));
 				heroText.append(
-					this.#createTextNode(
+					this.#utility.createTextNode(
 						"! Experience the cozy atmosphere and delicious coffee creations that make our café a local favorite "
 					)
 				);
-				heroText.append(this.#markText("since 1966"));
-				heroText.append(this.#createTextNode("."));
+				heroText.append(this.#utility.markText("since 1966"));
+				heroText.append(this.#utility.createTextNode("."));
 				heroCardWrapper.append(heroText);
 			} else {
 				// Hero Image
@@ -89,38 +91,38 @@ class Home {
 
 			switch (i) {
 				case 0: {
-					listItem.append(this.#markText("Monday"));
-					listItem.append(this.#createTextNode(": 12:00 - 21:00"));
+					listItem.append(this.#utility.markText("Monday"));
+					listItem.append(this.#utility.createTextNode(": 12:00 - 21:00"));
 					break;
 				}
 				case 1: {
-					listItem.append(this.#markText("Tuesday"));
-					listItem.append(this.#createTextNode(": 8:00 - 17:00"));
+					listItem.append(this.#utility.markText("Tuesday"));
+					listItem.append(this.#utility.createTextNode(": 8:00 - 17:00"));
 					break;
 				}
 				case 2: {
-					listItem.append(this.#markText("Wednesday"));
-					listItem.append(this.#createTextNode(": 12:00 - 21:00"));
+					listItem.append(this.#utility.markText("Wednesday"));
+					listItem.append(this.#utility.createTextNode(": 12:00 - 21:00"));
 					break;
 				}
 				case 3: {
-					listItem.append(this.#markText("Thursday"));
-					listItem.append(this.#createTextNode(": 8:00 - 17:00"));
+					listItem.append(this.#utility.markText("Thursday"));
+					listItem.append(this.#utility.createTextNode(": 8:00 - 17:00"));
 					break;
 				}
 				case 4: {
-					listItem.append(this.#markText("Friday"));
-					listItem.append(this.#createTextNode(": 12:00 - 21:00"));
+					listItem.append(this.#utility.markText("Friday"));
+					listItem.append(this.#utility.createTextNode(": 12:00 - 21:00"));
 					break;
 				}
 				case 5: {
-					listItem.append(this.#markText("Saturday"));
-					listItem.append(this.#createTextNode(": 16:00 - 2:00"));
+					listItem.append(this.#utility.markText("Saturday"));
+					listItem.append(this.#utility.createTextNode(": 16:00 - 2:00"));
 					break;
 				}
 				case 6: {
-					listItem.append(this.#markText("Saturday"));
-					listItem.append(this.#createTextNode(": Closed"));
+					listItem.append(this.#utility.markText("Saturday"));
+					listItem.append(this.#utility.createTextNode(": Closed"));
 					break;
 				}
 			}
@@ -129,19 +131,6 @@ class Home {
 		hoursCard.append(hoursList);
 
 		return hoursCard;
-	}
-
-	// Utility Functions
-	#markText(text) {
-		const highlightedText = document.createElement("span");
-		highlightedText.classList.add("highlighted-text");
-		highlightedText.textContent = text;
-
-		return highlightedText;
-	}
-
-	#createTextNode(text) {
-		return document.createTextNode(text);
 	}
 }
 

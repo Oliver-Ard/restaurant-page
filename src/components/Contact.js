@@ -1,10 +1,12 @@
+import Utility from "./Utility.js";
+
 import locationImg from "../images/location.png";
 
 class Contact {
-	#content;
+	#utility;
 
 	constructor() {
-		this.#content = document.querySelector("#content");
+		this.#utility = new Utility();
 	}
 
 	renderContactTab() {
@@ -14,7 +16,7 @@ class Contact {
 
 		contact.append(this.#createContactCard());
 
-		this.#content.append(contact);
+		this.#utility.content.append(contact);
 	}
 
 	#createContactCard() {
@@ -32,8 +34,10 @@ class Contact {
 		const contactCardText = document.createElement("p");
 		contactCardText.textContent =
 			"If you have general questions or concerns about ";
-		contactCardText.append(this.#markText("Café Savory Delights"));
-		contactCardText.append(this.#createTextNode(", please reach us through:"));
+		contactCardText.append(this.#utility.markText("Café Savory Delights"));
+		contactCardText.append(
+			this.#utility.createTextNode(", please reach us through:")
+		);
 		contactCard.append(contactCardText);
 
 		// List
@@ -46,23 +50,25 @@ class Contact {
 			switch (i) {
 				case 0: {
 					listItem.classList.add("phone");
-					listItem.append(this.#markText("Phone Number"));
-					listItem.append(this.#createTextNode(": +40 755-555-555"));
+					listItem.append(this.#utility.markText("Phone Number"));
+					listItem.append(this.#utility.createTextNode(": +40 755-555-555"));
 					break;
 				}
 				case 1: {
 					listItem.classList.add("email");
-					listItem.append(this.#markText("Email"));
+					listItem.append(this.#utility.markText("Email"));
 					listItem.append(
-						this.#createTextNode(": info@cafesavorydelights.com")
+						this.#utility.createTextNode(": info@cafesavorydelights.com")
 					);
 					break;
 				}
 				case 2: {
 					listItem.classList.add("location");
-					listItem.append(this.#markText("Address"));
+					listItem.append(this.#utility.markText("Address"));
 					listItem.append(
-						this.#createTextNode(": 12 Amzei Square Street, Bucharest, Romania")
+						this.#utility.createTextNode(
+							": 12 Amzei Square Street, Bucharest, Romania"
+						)
 					);
 					break;
 				}
@@ -79,19 +85,6 @@ class Contact {
 		contactCard.append(addressImg);
 
 		return contactCard;
-	}
-
-	// Utility Functions
-	#markText(text) {
-		const highlightedText = document.createElement("span");
-		highlightedText.classList.add("highlighted-text");
-		highlightedText.textContent = text;
-
-		return highlightedText;
-	}
-
-	#createTextNode(text) {
-		return document.createTextNode(text);
 	}
 }
 
